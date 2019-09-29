@@ -37,4 +37,11 @@ public class UserService{
     public User findOne(String email){
         return userRepository.findById(email).orElse(null);
     }
+
+	public boolean isUserPresent(String email) {
+        User u = userRepository.findById(email).orElse(null);
+        if(u != null)
+            return true;
+		return false;
+	}
 }
